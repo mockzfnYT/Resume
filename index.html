@@ -14,47 +14,52 @@
         }
 
         @page {
-            size: A4;
+            size: A4 portrait;
             margin: 0;
+            padding: 0;
         }
 
-        body {
+        html, body {
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 11pt;
+            font-size: 10.5pt;
             line-height: 1.4;
             color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            background: white;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .resume-container {
             width: 210mm;
-            min-height: 297mm;
-            max-width: 210mm;
-            margin: 0 auto;
+            height: 297mm;
+            margin: 0;
+            padding: 0;
             background: #ffffff;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: avoid;
         }
 
         .header {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
             color: white;
-            padding: 40px 50px;
+            padding: 35mm 12mm 35mm 12mm;
             position: relative;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 200px;
-            height: 200px;
+            top: -40mm;
+            right: -15mm;
+            width: 50mm;
+            height: 50mm;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             transform: rotate(45deg);
@@ -63,61 +68,66 @@
         .header::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 150px;
-            height: 150px;
+            bottom: -25mm;
+            left: -8mm;
+            width: 40mm;
+            height: 40mm;
             background: rgba(255,255,255,0.08);
             border-radius: 50%;
         }
 
         .name {
-            font-size: 2.8rem;
+            font-size: 28pt;
             font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            margin-bottom: 3mm;
+            letter-spacing: 0.5mm;
             position: relative;
             z-index: 2;
+            line-height: 1.1;
         }
 
         .contact-info {
-            font-size: 1rem;
+            font-size: 10pt;
             font-weight: 400;
             opacity: 0.95;
             position: relative;
             z-index: 2;
+            line-height: 1.2;
         }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 11pt;
             font-weight: 500;
-            margin-top: 15px;
+            margin-top: 4mm;
             opacity: 0.9;
             font-style: italic;
             position: relative;
             z-index: 2;
+            line-height: 1.3;
         }
 
         .content {
-            padding: 50px;
+            padding: 12mm;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 10mm;
+            flex-grow: 1;
         }
 
         .section {
-            margin-bottom: 35px;
+            margin-bottom: 8mm;
+            page-break-inside: avoid;
         }
 
         .section-title {
-            font-size: 1.3rem;
+            font-size: 12pt;
             font-weight: 700;
             color: #1a365d;
-            margin-bottom: 20px;
+            margin-bottom: 4mm;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.8mm;
             position: relative;
-            padding-bottom: 8px;
+            padding-bottom: 2mm;
         }
 
         .section-title::after {
@@ -125,53 +135,57 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 3px;
+            width: 10mm;
+            height: 1mm;
             background: linear-gradient(90deg, #3182ce, #667eea);
-            border-radius: 2px;
+            border-radius: 0.5mm;
         }
 
         .profile-text {
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 10pt;
+            line-height: 1.5;
             color: #4a5568;
             text-align: justify;
         }
 
         .experience-item {
-            margin-bottom: 25px;
+            margin-bottom: 6mm;
             position: relative;
+            page-break-inside: avoid;
         }
 
         .job-title {
-            font-size: 1.1rem;
+            font-size: 10.5pt;
             font-weight: 600;
             color: #1a365d;
-            margin-bottom: 5px;
+            margin-bottom: 1mm;
+            line-height: 1.2;
         }
 
         .company-date {
-            font-size: 0.95rem;
+            font-size: 9pt;
             color: #718096;
             font-weight: 500;
-            margin-bottom: 10px;
+            margin-bottom: 2mm;
+            line-height: 1.2;
         }
 
         .job-description {
             color: #4a5568;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .job-description ul {
-            margin-left: 0;
-            padding-left: 0;
+            margin: 0;
+            padding: 0;
         }
 
         .job-description li {
-            margin-bottom: 6px;
-            padding-left: 20px;
+            margin-bottom: 1.5mm;
+            padding-left: 5mm;
             position: relative;
             list-style: none;
+            font-size: 9.5pt;
         }
 
         .job-description li::before {
@@ -185,14 +199,16 @@
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 8px;
+            gap: 2mm;
         }
 
         .skill-item {
-            padding: 8px 0;
+            padding: 2mm 0;
             color: #4a5568;
             position: relative;
-            padding-left: 20px;
+            padding-left: 5mm;
+            font-size: 9.5pt;
+            line-height: 1.3;
         }
 
         .skill-item::before {
@@ -204,11 +220,12 @@
         }
 
         .achievement-item {
-            margin-bottom: 8px;
-            padding-left: 20px;
+            margin-bottom: 2mm;
+            padding-left: 5mm;
             position: relative;
             color: #4a5568;
-            line-height: 1.4;
+            line-height: 1.3;
+            font-size: 9.5pt;
         }
 
         .achievement-item::before {
@@ -221,28 +238,41 @@
 
         .full-width {
             grid-column: 1 / -1;
+            margin-top: 5mm;
         }
 
         .referees {
             text-align: center;
             font-style: italic;
             color: #718096;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #e2e8f0;
+            padding-top: 4mm;
+            border-top: 1pt solid #e2e8f0;
+            font-size: 10pt;
+        }
+
+        @media screen {
+            body {
+                margin: 20px auto;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
         }
 
         @media print {
-            body {
-                background: none;
+            html, body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
                 padding: 0;
             }
             
             .resume-container {
                 box-shadow: none;
-                border-radius: 0;
-                width: 100%;
-                max-width: none;
+                page-break-after: avoid;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
     </style>
