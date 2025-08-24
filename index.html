@@ -20,13 +20,13 @@
         }
 
         html, body {
-            width: 210mm;
-            height: 297mm;
+            width: 794px;
+            height: 1123px;
             margin: 0;
             padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 10.5pt;
-            line-height: 1.4;
+            font-size: 9.5pt;
+            line-height: 1.35;
             color: #2d3748;
             background: white;
             -webkit-print-color-adjust: exact;
@@ -34,8 +34,8 @@
         }
 
         .resume-container {
-            width: 210mm;
-            height: 297mm;
+            width: 794px;
+            height: 1123px;
             margin: 0;
             padding: 0;
             background: #ffffff;
@@ -47,7 +47,7 @@
         .header {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
             color: white;
-            padding: 35mm 12mm 35mm 12mm;
+            padding: 30px 35px;
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
@@ -56,10 +56,10 @@
         .header::before {
             content: '';
             position: absolute;
-            top: -40mm;
-            right: -15mm;
-            width: 50mm;
-            height: 50mm;
+            top: -100px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             transform: rotate(45deg);
@@ -68,26 +68,26 @@
         .header::after {
             content: '';
             position: absolute;
-            bottom: -25mm;
-            left: -8mm;
-            width: 40mm;
-            height: 40mm;
+            bottom: -80px;
+            left: -30px;
+            width: 120px;
+            height: 120px;
             background: rgba(255,255,255,0.08);
             border-radius: 50%;
         }
 
         .name {
-            font-size: 28pt;
+            font-size: 24pt;
             font-weight: 700;
-            margin-bottom: 3mm;
-            letter-spacing: 0.5mm;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
             position: relative;
             z-index: 2;
             line-height: 1.1;
         }
 
         .contact-info {
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 400;
             opacity: 0.95;
             position: relative;
@@ -96,9 +96,9 @@
         }
 
         .tagline {
-            font-size: 11pt;
+            font-size: 10pt;
             font-weight: 500;
-            margin-top: 4mm;
+            margin-top: 10px;
             opacity: 0.9;
             font-style: italic;
             position: relative;
@@ -107,27 +107,27 @@
         }
 
         .content {
-            padding: 12mm;
+            padding: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10mm;
+            gap: 25px;
             flex-grow: 1;
         }
 
         .section {
-            margin-bottom: 8mm;
+            margin-bottom: 20px;
             page-break-inside: avoid;
         }
 
         .section-title {
-            font-size: 12pt;
+            font-size: 11pt;
             font-weight: 700;
             color: #1a365d;
-            margin-bottom: 4mm;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.8mm;
+            letter-spacing: 1px;
             position: relative;
-            padding-bottom: 2mm;
+            padding-bottom: 6px;
         }
 
         .section-title::after {
@@ -135,10 +135,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 10mm;
-            height: 1mm;
+            width: 30px;
+            height: 3px;
             background: linear-gradient(90deg, #3182ce, #667eea);
-            border-radius: 0.5mm;
+            border-radius: 1.5px;
         }
 
         .profile-text {
