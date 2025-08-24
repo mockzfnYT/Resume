@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan D'Elboux - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
+            color: white;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 15px;
+            opacity: 0.9;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #3182ce, #667eea);
+            border-radius: 2px;
+        }
+
+        .profile-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+
+        .company-date {
+            font-size: 0.95rem;
+            color: #718096;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .job-description {
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .job-description ul {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+            list-style: none;
+        }
+
+        .job-description li::before {
+            content: '▸';
+            color: #3182ce;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .skill-item {
+            padding: 8px 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-item::before {
+            content: '●';
+            color: #3182ce;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .achievement-item {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
+        .achievement-item::before {
+            content: '★';
+            color: #ed8936;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .referees {
+            text-align: center;
+            font-style: italic;
+            color: #718096;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1 class="name">ETHAN D'ELBOUX</h1>
+            <div class="contact-info">
+                Buderim, Sunshine Coast • 0434 610 703 • ethan.delboux@outlook.com
+            </div>
+            <div class="tagline">
+                Student seeking part-time work to gain experience, build skills, and contribute positively to a workplace
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left-column">
+                <div class="section">
+                    <h2 class="section-title">Profile</h2>
+                    <p class="profile-text">
+                        Dedicated Year 8 student at Immanuel Lutheran College with proven academic excellence and 8 years of community service through surf lifesaving. Demonstrates exceptional reliability, leadership potential, and genuine commitment to personal growth. Actively seeking part-time employment to develop professional skills, contribute meaningfully to workplace success, and build financial responsibility through earning and investing.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item"><strong>Leadership & Teamwork:</strong> Sports teams, school activities, 8 years surf lifesaving</div>
+                        <div class="skill-item"><strong>Reliability & Work Ethic:</strong> Punctual, responsible, consistent commitment</div>
+                        <div class="skill-item"><strong>Adaptability:</strong> Observant learner, quick task comprehension</div>
+                        <div class="skill-item"><strong>Digital Literacy:</strong> Google Workspace, research, basic computer proficiency</div>
+                        <div class="skill-item"><strong>Safety & Risk Management:</strong> Surf Rescue Certificate training, hazard awareness</div>
+                        <div class="skill-item"><strong>Communication:</strong> Student leadership experience, community engagement</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <div class="achievement-item"><strong>STEM Excellence:</strong> Represented school in Roborave robotics competition, demonstrating technical aptitude</div>
+                    <div class="achievement-item"><strong>Athletic Commitment:</strong> Multi-sport participant in competitive soccer and touch football</div>
+                    <div class="achievement-item"><strong>Character Development:</strong> Martial arts training showcasing discipline, goal-setting, and perseverance</div>
+                    <div class="achievement-item"><strong>Community Leadership:</strong> Primary school Student Leader with ongoing environmental service involvement</div>
+                    <div class="achievement-item"><strong>Long-term Dedication:</strong> 8-year surf lifesaving commitment from age 6, showing exceptional consistency</div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">Community Environmental Volunteer</div>
+                        <div class="company-date">Sealife Project | Sunshine Coast | 2024</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Contributed to marine conservation through hands-on environmental cleanup activities</li>
+                                <li>Developed environmental stewardship awareness and sustainable practice understanding</li>
+                                <li>Demonstrated initiative in community service and ecological responsibility</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Surf Life Saving Cadet & Nippers Member</div>
+                        <div class="company-date">Sunshine Coast | 2017–Present</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>8 years continuous involvement demonstrating exceptional commitment and progression</li>
+                                <li>Advanced training toward Surf Rescue Certificate, developing critical safety skills</li>
+                                <li>Active participation in team-based surf safety education and patrol preparation</li>
+                                <li>Built resilience, responsibility, and community service ethic through lifesaving activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">Immanuel Lutheran College</div>
+                        <div class="company-date">Year 8 Student | Buderim, Sunshine Coast | 2025</div>
+                        <div class="job-description">
+                            <ul>
+                                <li><strong>Academic Excellence:</strong> Consistent Blue Academic Award recipient (80%+ average)</li>
+                                <li><strong>Athletic Achievement:</strong> Competitive soccer and touch football (SCISSA Competitions)</li>
+                                <li><strong>Personal Development:</strong> Taekwondo training fostering discipline and perseverance</li>
+                                <li><strong>Well-Rounded Performance:</strong> Balance of academics, athletics, and character development</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Buderim Mountain State School</div>
+                        <div class="company-date">Primary School Graduate | Buderim, Sunshine Coast | 2022</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Served as Student Leader, developing teamwork and leadership skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width">
+                <div class="referees">
+                    <strong>REFEREES</strong><br>
+                    Available on request
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
